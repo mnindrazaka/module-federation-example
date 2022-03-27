@@ -26,10 +26,11 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "application_b",
+      name: "container",
       filename: "remoteEntry.js",
-      exposes: {
-        "./SayHelloFromB": "./src/app",
+      remotes: {
+        application_a: "application_a@http://localhost:3001/remoteEntry.js",
+        application_b: "application_b@http://localhost:3002/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),

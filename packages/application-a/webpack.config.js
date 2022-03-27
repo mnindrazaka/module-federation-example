@@ -31,9 +31,6 @@ module.exports = {
       exposes: {
         "./SayHelloFromA": "./src/app",
       },
-      remotes: {
-        application_b: "application_b@http://localhost:3002/remoteEntry.js",
-      },
       shared: ["react", "react-dom"],
     }),
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
